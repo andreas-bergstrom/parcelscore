@@ -43,10 +43,9 @@ server.get("/parcels/:parcelId", (req, res) => {
 });
 
 server.post("/parcels", jsonParser, (req, res) => {
-  const { id, height, width, length } = req.body;
+  const { height, width, length } = req.body;
 
-  query("INSERT INTO parcels(id, height, width, length) VALUES($1, $2, $3, $4) RETURNING *", [
-    id,
+  query("INSERT INTO parcels(height, width, length) VALUES($1, $2, $3) RETURNING *", [
     height,
     width,
     length,
