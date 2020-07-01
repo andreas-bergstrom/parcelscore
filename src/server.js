@@ -9,13 +9,9 @@ const port = 3000;
 const itemsPerPage = 10;
 
 server.get("/parcels", (req, res) => {
-  const page = req.query.page;
-
+  const page = req.query.page || 1;
   let queryContent = "SELECT * FROM parcels";
-
-  if (page) {
-    queryContent += ` LIMIT ${itemsPerPage} OFFSET ${itemsPerPage * page - itemsPerPage}`;
-  }
+  queryContent += ` LIMIT ${itemsPerPage} OFFSET ${itemsPerPage * page - itemsPerPage}`;
 
   query(queryContent)
     .then((data) => {
