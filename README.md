@@ -18,10 +18,10 @@ Run **docker-compose up**, which will setup the database tables and dummydata. A
     curl http://localhost:3000/parcels?page=2
     curl http://localhost:3000/parcels/:parcelId
 
-## PUT /parcels/:parcelId
+### PUT /parcels/:parcelId
 
     curl --request PUT --data '{"width": 21, "height": 22, "length": 3}' --header "Content-Type: application/json" http://localhost:3000/parcels/2
 
-## DELETE /parcels/:parcelId
+### DELETE /parcels/:parcelId
 
     curl --request DELETE --header "Content-Type: application/json" http://localhost:3000/parcels/3
