@@ -24,7 +24,7 @@ server.get("/parcels", (req, res) => {
 });
 
 server.get("/parcels/:parcelId", (req, res) => {
-  query("SELECT * FROM parcels WHERE id = $1", [req.params.parcelId])
+  query("SELECT * FROM parcels WHERE id = $1 LIMIT 1", [req.params.parcelId])
     .then((data) => {
       if (data.rowCount > 0) {
         res.send(data.rows);
